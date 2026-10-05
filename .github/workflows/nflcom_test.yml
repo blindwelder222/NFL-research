@@ -18,7 +18,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install bs4; selenium
+          pip install bs4;
+          pip install selenium;
 
       - name: Acquire gamebook
         run: |
