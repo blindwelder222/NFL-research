@@ -1,0 +1,33 @@
+name: Basic Scrape
+
+on:
+  workflow_dispatch:
+
+jobs:
+  acquire-coaches:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install bs4, selenium
+
+      - name: Acquire gamebook
+        run: |
+          python NFL/nfl_scrape_test.py
+
+      - name: Upload game book artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: game book
+          path: data/raw/coaches/coaches.json
+          if-no-files-found: error
+          
