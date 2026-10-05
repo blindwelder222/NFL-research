@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  acquire-coaches:
+  acquire-gamebook:
     runs-on: ubuntu-latest
 
     steps:
